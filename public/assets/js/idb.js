@@ -42,7 +42,7 @@ function saveRecord(record) {
 
 function uploadPizza() {
     // open a transaction on your db
-    const transaction = db.transaction(['new_pizza', 'readwrite'])
+    const transaction = db.transaction(['new_pizza'], 'readwrite')
     // access your object store
     const pizzaObjectStore = transaction.objectStore('new_pizza')
     // get all records from store and set to a variable
@@ -65,7 +65,7 @@ function uploadPizza() {
                         throw new Error(serverResponse)
                     }
                     // open one more transaction
-                    cosnt transaction = db.transaction(['new_pizza'], 'readwrite')
+                    const transaction = db.transaction(['new_pizza'], 'readwrite');
                     // access the new_pizza object store
                     const pizzaObjectStore = transaction.objectStore('new_pizza')
                     //clear all items in your store
